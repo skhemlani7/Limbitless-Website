@@ -15,22 +15,25 @@
     var txtPassword = document.getElementById('txtPassword');
     var btnLogin = document.getElementById('btnLogin');
 
-    btnLogin.addEventListener('click',e => {
-        const username = txtUsername.value;
-        const password = txtPassword.value;
-        const auth = firebase.auth();
-        
-        if(document.getElementById('remember').checked) {
-            auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-            //console.log("Checked");
-        } else {
-            auth.setPersistence(firebase.auth.Auth.Persistence.SESSION);
-            //console.log("Not checked");
-        }
+    if (btnLogin !== null) {
+        btnLogin.addEventListener('click', e => {
+            const username = txtUsername.value;
+            const password = txtPassword.value;
+            const auth = firebase.auth();
 
-        /*const promise = */auth.signInWithEmailAndPassword(username,password);
-        
-    });
+            if (document.getElementById('remember').checked) {
+                auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+                //console.log("Checked");
+            } else {
+                auth.setPersistence(firebase.auth.Auth.Persistence.SESSION);
+                //console.log("Not checked");
+            }
+
+            /*const promise = */
+            auth.signInWithEmailAndPassword(username, password);
+
+        });
+    }
 
     /*
     register.addEventListener('click', e => {
@@ -45,7 +48,7 @@
     firebase.auth().onAuthStateChanged(firebaseUser => {
         //window.firebaseUser = firebaseUser;
         if (firebaseUser) {
-            window.location = 'scratch.html';/////////////////////////////////////////////////////////////////////////////////////////
+            window.location = 'portal.html';/////////////////////////////////////////////////////////////////////////////////////////
             //console.log(firebaseUser);
         }
         //if(!firebaseUser && window.location == 'portal.html'){
