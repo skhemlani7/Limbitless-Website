@@ -1,0 +1,65 @@
+body {
+    /*background-image:url(img/IronManArm-111_copy.jpg);*/
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.3), 
+        rgba(0, 0, 0, 0.3)
+      ), url(../img/IronManArm-111_copy.jpg);
+    background-position:center;
+    background-size:cover;
+    background-attachment:fixed;
+}
+#logo {
+    background-image:url(../img/Limbitless-Logos-06.png);
+    max-width:400px;
+    height:200px;
+    min-width: 300px;    
+    background-position:center;
+    background-size:cover;
+    margin:0 auto;
+}
+@font-face {
+    font-family: MuseoSans;
+    src: url(../fonts/exljbris-MuseoSans-300[2275].otf);
+}
+@font-face {
+    font-family: Klavika-Regular;
+    src: url(fonts/Klavika-Regular[2776].otf);
+}
+@font-face {
+    font-family: KlavikaBold;
+    src: url(../fonts/KlavikaBold.otf);
+}
+#login-form .form-control {
+    background-color:rgba(0,0,0,0.5);
+    border:0;
+    height:50px;
+    color:#fff;
+    border-radius:0;
+    margin-bottom:15px;
+}
+#login-form .form-control::placeholder {
+    color:#fff;
+}
+#login-form .btn.signin {
+    width:100%;
+    margin:15px 0;
+    background-color:#06a7e2;
+    color:#fff;
+    text-transform:uppercase;
+    font-size:1.5em;
+    font-family: "MuseoSans";
+}
+#login-form .forgot-password {
+    float:right;
+    color: #fff;
+}
+#login-form .bottom-text {
+    text-align:center;
+    color: #fff;
+    font-size: 20px;
+    font-family: "MuseoSans";
+}
+.form-check-label {
+    color: #fff;
+    font-family: "MuseoSans";
+}

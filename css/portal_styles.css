@@ -1,0 +1,218 @@
+body {
+    padding-top: 54px;
+}
+@media (min-width: 992px) {
+    body {
+        padding-top: 56px;
+    }
+}
+.bg-image-full {
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+table, th, td, tr {
+    border: solid;
+}
+@font-face {
+    font-family: MuseoSans;
+    src: url(../fonts/exljbris-MuseoSans-300[2275].otf);
+}
+@font-face {
+    font-family: Klavika-Regular;
+    src: url(fonts/Klavika-Regular[2776].otf);
+}
+@font-face {
+    font-family: KlavikaBold;
+    src: url(../fonts/KlavikaBold.otf);
+}
+section#sectionOne {
+    background-image:url(../img/IronManArm-111_copy.jpg)  ;
+    background-size:cover;
+    background-position:center;
+}
+.js-full-height {
+    max-height: 850px;
+}
+#sectionOneColor {
+    height:100%;
+    width:100%;
+    background-color:#2c5e92b3;
+    overflow:auto;
+}
+#sectionOne #user {
+    overflow:auto;
+    display:table;
+    margin:0 auto;
+    margin-top:250px;
+}
+#sectionOne #user .picture {
+    height:200px;
+    width:200px;
+    background-color:#fff;
+    border-radius:50%;
+    border:10px solid #00acea;
+    position:relative;
+    float:left;
+    margin-right:15px;
+}
+#sectionOne #user .picture .fa-user {
+    font-size:120px;
+    color:#989898;
+    text-align:center;
+    width:100%;
+    position:relative;
+    top:20px;
+}
+#sectionOne #user .picture .cog {
+    position:absolute;
+    bottom:-10px;
+    left:0;
+    background-color:#0f4170;
+    width:50px;
+    height:50px;
+    line-height:50px;
+    color:#fff;
+    border-radius:50%;
+    text-align:center;
+    font-size:35px;
+}
+#sectionOne .text {
+    float:left;
+    position:relative;
+    top:30px;
+}
+#sectionOne #user .name {
+    color:#fff;
+    font-size:3em;
+}
+#sectionOne #user .sub-name {
+    color:#fff;
+    font-size:3.5em;
+    font-weight:100;
+}
+#sectionOne #progress {
+    margin-top:60px;
+    max-width:700px;
+}
+#sectionOne #progress .progress-text {
+    color:#fff;
+    font-size:25px;
+}
+#sectionOne #progress .progress-text p {
+    margin:0;
+}
+#sectionOne #progress .progress-text .text-center {
+    font-size:30px;
+    margin-top:-5px;
+}
+#sectionOne #progress .progress {
+    height:30px;
+    border-radius:25px;
+    background-color:#fff;
+}
+#sectionOne #progress .progress-bar {
+    background-color:#18a6df;
+}
+#sectionTwo {
+    overflow:hidden;
+    position:relative;
+}
+#sectionTwo .text {
+    position:absolute;
+    top: 150px;
+    left:0;
+    right:0;
+    margin:auto;
+    z-index:1;
+    color:#fff;
+    text-align:center;
+}
+#sectionTwo .text h1 {
+    font-size:70px;
+}
+#sectionTwo .text p {
+    font-size:30px;
+}
+#sectionTwo .text .btn {
+    background-color:#18a6df;
+    color:#fff;
+    padding:10px 60px;
+    font-size:25px;
+    margin-top:25px;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    font-size:200px;
+}
+#sectionTwo #carouselSectionTwo {
+    height:100%;
+}
+#sectionTwo .carousel-item {
+    max-height:100%;
+}
+#sectionDevices .section-title {
+    text-align:center;
+    padding:40px 0;
+    font-size:50px;
+    color:#18a6df;
+}
+#sectionDevices .device-img {
+    width:100%;
+    height:200px;
+    background-position:center;
+    background-size:contain;
+    background-repeat:no-repeat;
+
+}
+#sectionDevices .device-img-1 {
+    background-image:url(../img/device1.png);
+}
+#sectionDevices .device-img-2 {
+    background-image:url(../img/device2.png);
+}
+#sectionDevices .device-img-3 {
+    background-image:url(../img/device3.png);
+}
+#sectionDevices .device-img-4 {
+    background-image:url(../img/device4.png);
+}
+#sectionDevices .device-row {
+    border-bottom:1px solid #9c9c9c;
+    padding:40px 0;
+}
+#sectionDevices .device-row:last-child {
+    border-bottom:0;
+}
+.slider-container {
+    margin-bottom:30px;
+}
+.slider-text {
+    overflow:hidden;
+    height: 30px;
+    color:#666;
+}
+.slider-container .slider {
+    height:10px;
+    border: 1px solid #e0e0e0;
+    border-radius:50px;
+    position:relative;
+}
+.slider-container .slider .point {
+    position:absolute;
+    top:-8px;;
+}
+.slider-container .left {
+    float:left;
+}
+.slider-container .right {
+    float: right;
+}
+footer {
+    background-image:url(../img/footer.jpg);
+    background-size:cover;
+    background-position:center;
+    height:300px;
+}
