@@ -1,4 +1,4 @@
-(function() {
+(function () {
 
     // Initialize Firebase
     var config = {
@@ -15,47 +15,39 @@
     var txtPassword = document.getElementById('txtPassword');
     var btnLogin = document.getElementById('btnLogin');
 
-    if(btnLogin !== null) {
+    if (btnLogin !== null) {
         btnLogin.addEventListener('click', e => {
             const username = txtUsername.value;
-        const password = txtPassword.value;
-        const auth = firebase.auth();
+            const password = txtPassword.value;
+            const auth = firebase.auth();
 
-        if (document.getElementById('remember').checked) {
-            auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-            //console.log("Checked");
-        } else {
-            auth.setPersistence(firebase.auth.Auth.Persistence.SESSION);
-            //console.log("Not checked");
-        }
+            if (document.getElementById('remember').checked) {
+                auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+                //console.log("Checked");
+            } else {
+                auth.setPersistence(firebase.auth.Auth.Persistence.SESSION);
+                //console.log("Not checked");
+            }
 
-        /*const promise = */
-        auth.signInWithEmailAndPassword(username, password);
+            /*const promise = */
+            auth.signInWithEmailAndPassword(username, password).catch(function(error){
+                alert("Login failed!");
+            });
 
-    });
+        });
     }
 
-    /*
-    register.addEventListener('click', e => {
-        const username = txtUsername.value;
-        const password = txtPassword.value;
-        const auth = firebase.auth();
-
-        const promise = auth.createUserWithEmailAndPassword(username,password);
-    });
-    */
-
     firebase.auth().onAuthStateChanged(firebaseUser => {
-        
+
         if (firebaseUser) {
             //console.log(firebaseUser.email);
-            if(firebaseUser.email == 'admin@limbitless-solutions.org'){
-                if(GetFilename(window.location.href) !== 'admin'){
+            if (firebaseUser.email == 'admin@limbitless-solutions.org') {
+                if (GetFilename(window.location.href) !== 'admin') {
                     window.location = 'admin.html';
                 }
             }
 
-            if(GetFilename(window.location.href) !== 'portal' && firebaseUser.email !== 'admin@limbitless-solutions.org') {
+            if (GetFilename(window.location.href) !== 'portal' && firebaseUser.email !== 'admin@limbitless-solutions.org') {
                 window.location = 'portal.html';
             }
 
@@ -65,13 +57,10 @@
 
 }());
 
-function GetFilename(url)
-{
-    if (url)
-    {
+function GetFilename(url) {
+    if (url) {
         var m = url.toString().match(/.*\/(.+?)\./);
-        if (m && m.length > 1)
-        {
+        if (m && m.length > 1) {
             return m[1];
         }
     }
