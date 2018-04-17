@@ -46,17 +46,20 @@
     */
 
     firebase.auth().onAuthStateChanged(firebaseUser => {
-        //window.firebaseUser = firebaseUser;
+        
         if (firebaseUser) {
-
-            if(GetFilename(window.location.href) !== 'portal') {
-                window.location = 'portal.html';/////////////////////////////////////////////////////////////////////////////////////////
+            //console.log(firebaseUser.email);
+            if(firebaseUser.email == 'admin@limbitless-solutions.org'){
+                if(GetFilename(window.location.href) !== 'admin'){
+                    window.location = 'admin.html';
+                }
             }
-            //console.log(firebaseUser);
+
+            if(GetFilename(window.location.href) !== 'portal' && firebaseUser.email !== 'admin@limbitless-solutions.org') {
+                window.location = 'portal.html';
+            }
+
         }
-        //if(!firebaseUser && window.location == 'portal.html'){
-          //  window.location = 'index.html';
-        //}
     });
 
 
