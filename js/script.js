@@ -14,6 +14,7 @@
     var txtUsername = document.getElementById('txtUsername');
     var txtPassword = document.getElementById('txtPassword');
     var btnLogin = document.getElementById('btnLogin');
+    var resetpass = document.getElementById('resetPassword');
 
     if (btnLogin !== null) {
         btnLogin.addEventListener('click', e => {
@@ -32,6 +33,18 @@
             /*const promise = */
             auth.signInWithEmailAndPassword(username, password).catch(function(error){
                 alert("Login failed!");
+            });
+
+        });
+    }
+
+    if (resetpass !== null) {
+        resetpass.addEventListener('click', e => {
+            var emailAddress = prompt("Please enter your email", "Email");
+            firebase.auth().sendPasswordResetEmail(emailAddress).then(function (e) {
+                alert("Reset email sent!");
+            }).catch(function (error) {
+                alert("Invalid email!");
             });
 
         });
