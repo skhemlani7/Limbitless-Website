@@ -9,12 +9,17 @@
 
             dbRef.child('users').child(uid).on('value', snap => console.log(snap.val()));
             var patientName = document.getElementById('patientName');
+            var patientNickname = document.getElementById('patientNickname');
+            var currentlevel = document.getElementById('currentlevel');
+            var nextlevel = document.getElementById('nextlevel');
             //Use snap.val() for the full object
             dbRef.child('users').child(uid).on('value', snap =>{
                 obj = snap.val();
-                tempName = obj['name'];
-                level = obj['level'];
-                patientName.innerText = tempName;
+                level = obj['currentlevel'];
+                patientNickname.innerText = obj['nickname'];
+                patientName.innerText = obj['name'];
+                currentlevel.innerText = "Level" + " " +level;
+                nextlevel.innerText = "Level" + " " + (level+1);
             });
             //console.log(userQuery.child('level').value);
 
