@@ -1,9 +1,18 @@
 (function(){
+
+    var dbRef = firebase.database().ref();
+
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             // User is signed in.
             var uid = user.uid;
             var email = user.email;
+
+            console.log(uid);
+            console.log(typeof uid);
+            dbRef.child('users').child(uid).on('value', snap => console.log(snap.val()));
+            //console.log(userQuery.child('level').value);
+
             document.getElementById('logout').addEventListener('click',  function(e) {
                 firebase.auth().signOut();
                 e.preventDefault();
