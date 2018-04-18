@@ -216,3 +216,29 @@ footer {
     background-position:center;
     height:300px;
 }
+table tr td {
+    padding: 10px;
+}
+table {
+    vertical-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    border-color: black;
+}
+table tr td.table-header{
+    background: #06a7e2;
+    color: #fff;
+    border-color: black;
+}
+td {
+    align-content: left;
+    padding-left: 15px;
+}
+.admin-header {
+    text-align:center;
+    padding:40px 0;
+    font-size:50px;
+    color:#18a6df;
+    font-family: "MuseoSans";
+}
