@@ -6,11 +6,16 @@
         if (user) {
             // User is signed in.
             var uid = user.uid;
-            var email = user.email;
 
-            console.log(uid);
-            console.log(typeof uid);
             dbRef.child('users').child(uid).on('value', snap => console.log(snap.val()));
+            var patientName = document.getElementById('patientName');
+            //Use snap.val() for the full object
+            dbRef.child('users').child(uid).on('value', snap =>{
+                obj = snap.val();
+                tempName = obj['name'];
+                level = obj['level'];
+                patientName.innerText = tempName;
+            });
             //console.log(userQuery.child('level').value);
 
             document.getElementById('logout').addEventListener('click',  function(e) {
