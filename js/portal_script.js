@@ -5,13 +5,25 @@
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             // User is signed in.
-            var uid = user.uid;
+            
+            dbRef.child('games').on('value', snap => {
+                var obj = snap.val();
+                //console.log(obj);
+                var length = Object.keys(obj).length; 
+                //console.log(length);
+                for(key=0;key<length;key++){
+                    console.log(obj[key]);
+                }
+            });
+            //Instead of logging to console, generate a div in bootstrap carousel format for each game
 
-            dbRef.child('users').child(uid).on('value', snap => console.log(snap.val()));
+            //dbRef.child('users').child(uid).on('value', snap => console.log(snap.val()));
+            var uid = user.uid;            
             var patientName = document.getElementById('patientName');
             var patientNickname = document.getElementById('patientNickname');
             var currentlevel = document.getElementById('currentlevel');
             var nextlevel = document.getElementById('nextlevel');
+
             //Use snap.val() for the full object
             dbRef.child('users').child(uid).on('value', snap =>{
                 obj = snap.val();
@@ -19,7 +31,7 @@
                 patientNickname.innerText = obj['nickname'];
                 patientName.innerText = obj['name'];
                 currentlevel.innerText = "Level" + " " +level;
-                nextlevel.innerText = "Level" + " " + (level+1);
+                nextlevel.innerText = "Level" + " " + String(Number(level)+1);
             });
             //console.log(userQuery.child('level').value);
 
