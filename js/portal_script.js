@@ -1,5 +1,15 @@
 (function(){
 
+    var div = document.createElement("div");
+    div.setAttribute('class', 'carousel-item'); 
+    var subdiv = document.createElement("div");
+    subdiv.setAttribute('class', 'text'); 
+    div.appendChild(subdiv);
+    var myImage = document.createElement("img");
+    div.appendChild(myImage);
+    document.getElementById("carouselSelector").appendChild(div);
+    //div,subdiv,h1,p,a,button
+    //img before ending og div
     var dbRef = firebase.database().ref();
 
     firebase.auth().onAuthStateChanged(function (user) {
@@ -8,14 +18,13 @@
             
             dbRef.child('games').on('value', snap => {
                 var obj = snap.val();
-                //console.log(obj);
                 var length = Object.keys(obj).length; 
-                //console.log(length);
+
                 for(key=0;key<length;key++){
+                    //Instead of logging to console, generate a div in bootstrap carousel format for each game
                     console.log(obj[key]);
                 }
             });
-            //Instead of logging to console, generate a div in bootstrap carousel format for each game
 
             //dbRef.child('users').child(uid).on('value', snap => console.log(snap.val()));
             var uid = user.uid;            
