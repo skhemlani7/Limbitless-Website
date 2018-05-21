@@ -4,6 +4,7 @@
     div.setAttribute('class', 'carousel-item'); 
     var subdiv = document.createElement("div");
     subdiv.setAttribute('class', 'text'); 
+    //
     div.appendChild(subdiv);
     var myImage = document.createElement("img");
     div.appendChild(myImage);
