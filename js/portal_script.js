@@ -1,40 +1,20 @@
 (function(){
 
-
-    //logic to add game to carousel
-    var div = document.createElement("div");
-    div.setAttribute('class', 'carousel-item'); 
-    var subdiv = document.createElement("div");
-    subdiv.setAttribute('class', 'text'); 
-    var myHeader = document.createElement("h1");
-    myHeader.innerHTML = "TEST";
-    var myParagraph = document.createElement("p");
-    myParagraph.innerHTML = "THIS IS A TEST";
-    var a_tag = document.createElement("a");
-    a_tag.setAttribute('href','https://play.google.com/store/apps/details?id=com.optimesoftware.checkers.free');
-    a_tag.setAttribute('target', '_blank');
-    var button_tag = document.createElement("button");
-    button_tag.setAttribute('type', 'button');
-    button_tag.setAttribute('class', "btn download");
-    a_tag.appendChild(button_tag);
-    subdiv.appendChild(myHeader);
-    subdiv.appendChild(myParagraph);
-    subdiv.appendChild(a_tag);
-    div.appendChild(subdiv);
-    var myImage = document.createElement("img");
-    myImage.setAttribute('class', "d-block w-100");
-    myImage.setAttribute('style',"filter:brightness(50%);");
-    myImage.setAttribute('src',"https://upload.wikimedia.org/wikipedia/en/8/80/Street_Fighter_V_box_artwork.png");
-    div.appendChild(myImage);
-    document.getElementById("carouselSelector").appendChild(div);
-
-
     var dbRef = firebase.database().ref();
 
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             // User is signed in.
             
+            //Array variables for adding games to carousel
+            var div = [];
+            var subdiv = [];
+            var myHeader = [];
+            var myParagraph = [];
+            var a_tag = [];
+            var button_tag = [];
+            var myImage = [];
+
             dbRef.child('games').on('value', snap => {
                 var obj = snap.val();
                 var length = Object.keys(obj).length; 
@@ -42,6 +22,33 @@
                 for(key=0;key<length;key++){
                     //Instead of logging to console, generate a div in bootstrap carousel format for each game
                     console.log(obj[key]);
+
+                    //logic to add game to carousel
+                    div[i] = document.createElement("div");
+                    div[i].setAttribute('class', 'carousel-item'); 
+                    subdiv[i] = document.createElement("div");
+                    subdiv[i].setAttribute('class', 'text'); 
+                    myHeader[i] = document.createElement("h1");
+                    myHeader[i].innerHTML = "TEST";
+                    myParagraph[i] = document.createElement("p");
+                    myParagraph[i].innerHTML = "THIS IS A TEST";
+                    a_tag[i] = document.createElement("a");
+                    a_tag[i].setAttribute('href','https://play.google.com/store/apps/details?id=com.optimesoftware.checkers.free');
+                    a_tag[i].setAttribute('target', '_blank');
+                    button_tag[i] = document.createElement("button");
+                    button_tag[i].setAttribute('type', 'button');
+                    button_tag[i].setAttribute('class', "btn download");
+                    a_tag[i].appendChild(button_tag);
+                    subdiv[i].appendChild(myHeader);
+                    subdiv[i].appendChild(myParagraph);
+                    subdiv[i].appendChild(a_tag);
+                    div[i].appendChild(subdiv);
+                    myImage[i] = document.createElement("img");
+                    myImage[i].setAttribute('class', "d-block w-100");
+                    myImage[i].setAttribute('style',"filter:brightness(50%);");
+                    myImage[i].setAttribute('src',"https://upload.wikimedia.org/wikipedia/en/8/80/Street_Fighter_V_box_artwork.png");
+                    div[i].appendChild(myImage);
+                    document.getElementById("carouselSelector").appendChild(div);
                 }
             });
 
